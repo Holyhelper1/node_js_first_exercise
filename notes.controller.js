@@ -19,7 +19,6 @@ async function addNote(title) {
 async function removeNote(id) {
   const notes = await getNotes();
   const filteredByIdNote = notes.filter((note) => note.id !== id);
-  delete filteredByIdNote.id;
   await fs.writeFile(notesPath, JSON.stringify(filteredByIdNote));
 
   console.log(chalk.bgRed("Note was removed"));
